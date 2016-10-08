@@ -71,6 +71,13 @@ async def on_message(message):
         await asyncio.sleep(4.8)
         await voice.disconnect()
 
+    if "varsel" in message.content.casefold():
+        print("whoop whoop")
+        voice = await client.join_voice_channel(discord.Object(id="207937363517767681"))
+        player = voice.create_ffmpeg_player('mariowarning.mp3')
+        player.start()
+        await asyncio.sleep(3.2)
+        await voice.disconnect()
 
 
 
