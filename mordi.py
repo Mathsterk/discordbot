@@ -3,6 +3,8 @@ import asyncio
 
 client = discord.Client()
 
+discord.opus.load_opus("/usr/lib/x86_64-linux-gnu/libopus.so.0")
+
 @client.event
 async def on_ready():
     print('Logged in as')
@@ -40,8 +42,41 @@ async def on_message(message):
             await asyncio.sleep(0.3)
             await client.send_message(message.channel, 'desudesukunsan')
             print('pikk')
+
     elif message.content.casefold().startswith('how 2 be otaku 101'):
             await client.send_message(message.channel, 'https://youtu.be/YvLsWydCkzQ')
+
+
+    elif message.content.casefold().startswith("the song"):
+        print("faen")
+        voice = await client.join_voice_channel(discord.Object(id="207937363517767681"))
+        player = voice.create_ffmpeg_player('fisk.mp3')
+        player.start()
+        await asyncio.sleep(8.7666)
+        await voice.disconnect()
+
+    if "mario" in message.content.casefold():
+        print("mario")
+        voice = await client.join_voice_channel(discord.Object(id="207937363517767681"))
+        player = voice.create_ffmpeg_player('mariodeath.wav')
+        player.start()
+        await asyncio.sleep(3.4)
+        await voice.disconnect()
+
+    if "tromme" in message.content.casefold():
+        print("luigi")
+        voice = await client.join_voice_channel(discord.Object(id="207937363517767681"))
+        player = voice.create_ffmpeg_player('trommelyd.wav')
+        player.start()
+        await asyncio.sleep(4.8)
+        await voice.disconnect()
+
+
+
+
+
+#    if player.is_done():
+ #           voice.disconnect()
 
 
 client.run('MjA3OTQzNDA5NjQ4OTI2NzIw.CtmkqA.9_AO259ZRrlDILQaA5yPd-WZ_2Y')
