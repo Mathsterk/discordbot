@@ -49,7 +49,7 @@ async def on_message(message):
 
     elif message.content.casefold().startswith("the song"):
         print("faen")
-        voice = await client.join_voice_channel(discord.Object(id="207937363517767681"))
+        voice = await client.join_voice_channel(discord.Object(id=message.author.voice_channel.id))
         player = voice.create_ffmpeg_player('fisk.mp3')
         player.start()
         await asyncio.sleep(8.7666)
@@ -57,7 +57,7 @@ async def on_message(message):
 
     if "mario" in message.content.casefold():
         print("mario")
-        voice = await client.join_voice_channel(discord.Object(id="207937363517767681"))
+        voice = await client.join_voice_channel(discord.Object(id=message.author.voice_channel.id))
         player = voice.create_ffmpeg_player('mariodeath.wav')
         player.start()
         await asyncio.sleep(3.4)
@@ -65,7 +65,7 @@ async def on_message(message):
 
     if "tromme" in message.content.casefold():
         print("luigi")
-        voice = await client.join_voice_channel(discord.Object(id="207937363517767681"))
+        voice = await client.join_voice_channel(discord.Object(id=message.author.voice_channel.id))
         player = voice.create_ffmpeg_player('trommelyd.wav')
         player.start()
         await asyncio.sleep(4.8)
@@ -73,12 +73,13 @@ async def on_message(message):
 
     if "varsel" in message.content.casefold():
         print("whoop whoop")
-        voice = await client.join_voice_channel(discord.Object(id="207937363517767681"))
+        voice = await client.join_voice_channel(discord.Object(id=message.author.voice_channel.id))
         player = voice.create_ffmpeg_player('mariowarning.mp3')
         player.start()
         await asyncio.sleep(3.2)
         await voice.disconnect()
-
+        print(message.author)
+        print(message.author.voice_channel.id)
 
 
 
